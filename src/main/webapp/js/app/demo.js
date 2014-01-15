@@ -3,15 +3,15 @@ require({
     paths: {
         'jquery': 'lib/jquery-1.10.2',
         'jquery.cometd': 'lib/cometd/jquery.cometd',
-        'cometd': 'lib/cometd/cometd'
+        'org/cometd': 'lib/cometd/cometd'
     },
     shim: {
     	'jquery.cometd': {
     		exports: 'jquery.cometd',
-    		deps: ['cometd']
+    		deps: ['org/cometd']
     	},
-    	'cometd': {
-    		exports: 'cometd'
+    	'org/cometd': {
+    		exports: 'org/cometd'
     	}
     }
 }, ['jquery', 'jquery.cometd'], function($, cometd) {
