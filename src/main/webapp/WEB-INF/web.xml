@@ -8,11 +8,11 @@
 		<servlet-class>org.apache.wink.guice.server.internal.servlet.GuiceRestServlet</servlet-class>
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
-			<param-value>me.anying.commet.server.DemoApplication</param-value>
+			<param-value>me.anying.server.DemoApplication</param-value>
 		</init-param>
 		<init-param>
 			<param-name>deploymentConfiguration</param-name>
-			<param-value>me.anying.commet.server.DemoDeploymentConfiguration</param-value>
+			<param-value>me.anying.server.DemoDeploymentConfiguration</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

@@ -1,4 +1,4 @@
-package me.anying.commet.server.controller;
+package me.anying.server.controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

@@ -1,4 +1,4 @@
-package me.anying.commet.server;
+package me.anying.server;
 
 import org.apache.wink.guice.server.internal.GuiceDeploymentConfiguration;
 import org.apache.wink.guice.server.internal.lifecycle.WinkGuiceModule;
