@@ -17,10 +17,8 @@
 	<title>Message Box</title>
 </head>
 <body>
-	<form>
-		<input type="text" id="message_to_send" name="msg" />
-		<input type="button" name="btn" id="sendMsg" value="Send">
-		<div id="messages"></div>
-	</form>
+	<input type="text" id="message-to-send" name="msg" />
+	<button name="btn" id="send-msg">Greet!</button>
+	<div id="messages"></div>
 </body>
 </html>

@@ -17,10 +17,32 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
+	<servlet>
+        <servlet-name>cometd</servlet-name>
+        <servlet-class>org.cometd.annotation.AnnotationCometdServlet</servlet-class>
+        <init-param>
+            <param-name>services</param-name>
+            <param-value>me.anying.cometd.ClientService</param-value>
+        </init-param>
+    </servlet>
+    
 	<servlet-mapping>
 		<servlet-name>ServerPushServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 		<url-pattern>/demo/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>cometd</servlet-name>
+		<url-pattern>/cometd/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>/js/*</url-pattern>
+		<url-pattern>/css/*</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>

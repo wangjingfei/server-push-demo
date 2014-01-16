@@ -10,18 +10,11 @@
 	<artifactId>datastore</artifactId>
 
 	<properties>
-		<appengine.app.version>1</appengine.app.version>
-		<appengine.target.version>1.8.9</appengine.target.version>
+		<jettyVersion>9.0.3.v20130506</jettyVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
-		<!-- Compile/runtime dependencies -->
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-1.0-sdk</artifactId>
-			<version>${appengine.target.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.apache.wink</groupId>
 			<artifactId>wink-guice-server</artifactId>
@@ -43,23 +36,14 @@
 			<version>1.7.5</version>
 		</dependency>
 		<dependency>
+			<groupId>org.cometd.java</groupId>
+			<artifactId>cometd-java-annotations</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-		</dependency>
-
-		<!-- Test Dependencies -->
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-testing</artifactId>
-			<version>${appengine.target.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.appengine</groupId>
-			<artifactId>appengine-api-stubs</artifactId>
-			<version>${appengine.target.version}</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -72,6 +56,18 @@
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jettyVersion}</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<webApp>
+						<contextPath>/</contextPath>
+					</webApp>
 				</configuration>
 			</plugin>
 
@@ -91,13 +87,6 @@
 					</webResources>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>com.google.appengine</groupId>
-				<artifactId>appengine-maven-plugin</artifactId>
-				<version>${appengine.target.version}</version>
-			</plugin>
 		</plugins>
 	</build>
-
 </project>

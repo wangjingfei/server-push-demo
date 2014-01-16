@@ -28,5 +28,10 @@ require({
         }
 	});
 	
+	$('#send-msg').click(function() {
+		var message = $('#message-to-send').val();
+		cometd.publish('/service/hello', message);
+	});
+	
 	cometd.handshake();
 });
