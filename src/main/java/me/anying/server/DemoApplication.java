@@ -4,10 +4,9 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
-import org.apache.wink.server.internal.providers.entity.html.HtmlProvider;
-
 import me.anying.server.controller.IndexController;
 import me.anying.server.controller.MessageBoxController;
+import me.anying.server.controller.StockPriceController;
 
 import com.google.common.collect.Sets;
 
@@ -17,13 +16,13 @@ public class DemoApplication extends Application {
 		Set<Class<?>> classes = Sets.newHashSet();
 		classes.add(IndexController.class);
 		classes.add(MessageBoxController.class);
+		classes.add(StockPriceController.class);
 		return classes;
 	}
 
 	@Override
 	public Set<Object> getSingletons() {
 		Set<Object> singletons = Sets.newHashSet();
-		singletons.add(new HtmlProvider());
 		return singletons;
 	}
 }

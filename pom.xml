@@ -11,10 +11,16 @@
 
 	<properties>
 		<jettyVersion>9.0.3.v20130506</jettyVersion>
+		<cometdVersion>2.7.0</cometdVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.wink</groupId>
 			<artifactId>wink-guice-server</artifactId>
@@ -37,8 +43,23 @@
 		</dependency>
 		<dependency>
 			<groupId>org.cometd.java</groupId>
+			<artifactId>cometd-websocket-jetty</artifactId>
+			<version>${cometdVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.cometd.java</groupId>
 			<artifactId>cometd-java-annotations</artifactId>
-			<version>2.7.0</version>
+			<version>${cometdVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-servlets</artifactId>
+			<version>${jettyVersion}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-io</artifactId>
+			<version>${jettyVersion}</version>
 		</dependency>
 		<dependency>
 			<groupId>jstl</groupId>

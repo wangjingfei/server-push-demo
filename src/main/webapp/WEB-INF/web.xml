@@ -20,10 +20,26 @@
 	<servlet>
         <servlet-name>cometd</servlet-name>
         <servlet-class>org.cometd.annotation.AnnotationCometdServlet</servlet-class>
+        <async-supported>true</async-supported> 
+        <init-param>
+            <param-name>transports</param-name>
+            <param-value>org.cometd.websocket.server.WebSocketTransport</param-value>
+        </init-param>
         <init-param>
             <param-name>services</param-name>
-            <param-value>me.anying.cometd.ClientService</param-value>
+            <param-value>me.anying.cometd.StockPriceService</param-value>
         </init-param>
+        <init-param>
+            <param-name>maxLazyTimeout</param-name>
+            <param-value>2000</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+	<servlet>
+        <servlet-name>initializer</servlet-name>
+        <servlet-class>me.anying.cometd.Initializer</servlet-class>
+        <load-on-startup>2</load-on-startup>
     </servlet>
     
 	<servlet-mapping>
@@ -44,8 +60,13 @@
 		<url-pattern>/js/*</url-pattern>
 		<url-pattern>/css/*</url-pattern>
 	</servlet-mapping>
-
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
+	
+	<filter>
+        <filter-name>cross-origin</filter-name>
+        <filter-class>org.eclipse.jetty.servlets.CrossOriginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>cross-origin</filter-name>
+        <url-pattern>/cometd/*</url-pattern>
+    </filter-mapping>
 </web-app>
